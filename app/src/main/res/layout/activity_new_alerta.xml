@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/clock_fragment"
+        android:name="com.android.medialerta.presentation.clock.ClockFragment"
+        android:layout_width="325dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_clock" />
+
+    <EditText
+        android:id="@+id/txtNomeMedicamentoNovo"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/nome_do_medicamento"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLength="40"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clock_fragment" />
+
+    <EditText
+        android:id="@+id/txtDiasDesc"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:enabled="false"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLength="40"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtHoraNovo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembrete"
+        android:visibility="invisible"/>
+
+    <Spinner
+        android:id="@+id/ddlTipoMedicamento"
+        android:layout_width="236dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/TipoMedicamento"
+        android:scrollbars="vertical"
+        android:textSize="56sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtQtdNovo"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeMedicamentoNovo" />
+
+    <Spinner
+        android:id="@+id/ddlLembrete"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/Lembrete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlTipoMedicamento" />
+
+    <EditText
+        android:id="@+id/txtHoraNovo"
+        android:layout_width="69dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/hora"
+        android:inputType="number"
+        android:maxLength="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembrete" />
+
+    <Button
+        android:id="@+id/btnImg"
+        android:layout_width="115dp"
+        android:layout_height="93dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/camera_add"
+        app:iconSize="200px"
+        app:iconTint="#252323"
+        app:layout_constraintBottom_toBottomOf="@+id/imgMedicamento"
+        app:layout_constraintEnd_toEndOf="@+id/imgMedicamento"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="@+id/imgMedicamento"
+        app:layout_constraintTop_toTopOf="@+id/imgMedicamento"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <ImageView
+        android:id="@+id/imgMedicamento"
+        android:layout_width="140dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbTerca" />
+
+    <EditText
+        android:id="@+id/txtMinutoNovo"
+        android:layout_width="69dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/minuto"
+        android:inputType="number"
+        android:maxLength="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembrete" />
+
+    <Button
+        android:id="@+id/btnSalvarNovo"
+        android:layout_width="154dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbQuinta" />
+
+    <CheckBox
+        android:id="@+id/cbSabado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="S"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toEndOf="@+id/cbSexta"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutoNovo" />
+
+    <CheckBox
+        android:id="@+id/cbDomingo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraNovo" />
+
+    <CheckBox
+        android:id="@+id/cbQuarta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Q"
+        app:layout_constraintStart_toEndOf="@+id/cbTerca"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraNovo" />
+
+    <CheckBox
+        android:id="@+id/cbQuinta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Q"
+        app:layout_constraintStart_toEndOf="@+id/cbQuarta"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutoNovo" />
+
+    <CheckBox
+        android:id="@+id/cbSegunda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="S"
+        app:layout_constraintStart_toEndOf="@+id/cbDomingo"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraNovo" />
+
+    <CheckBox
+        android:id="@+id/cbSexta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="S"
+        app:layout_constraintStart_toEndOf="@+id/cbQuinta"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutoNovo" />
+
+    <CheckBox
+        android:id="@+id/cbTerca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="T"
+        app:layout_constraintStart_toEndOf="@+id/cbSegunda"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraNovo" />
+
+    <EditText
+        android:id="@+id/txtQtdNovo"
+        android:layout_width="81dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/qtd"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="5"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeMedicamentoNovo" />
+
+    <Button
+        android:id="@+id/btnCalendar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:hint="C"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toEndOf="@+id/txtMinutoNovo"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembrete" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

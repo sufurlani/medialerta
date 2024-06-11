@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_BASIC_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="33" />
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:name="com.android.medialerta.MediAlertaApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustResize"
+        android:fitsSystemWindows="true">
+        <activity
+            android:name="com.android.medialerta.presentation.MainActivity"
+            android:label="@string/app_name"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.android.medialerta.presentation.alert.AlertaListActivity" android:label="Alertas"/>
+        <activity android:name="com.android.medialerta.presentation.alert.NewAlertaActivity" android:label="Criar Alerta"/>
+        <activity android:name="com.android.medialerta.presentation.alert.EditAlertaActivity" android:label="Editar Alerta"/>
+        <activity android:name="com.android.medialerta.presentation.camerapreview.CameraPreviewActivity" android:label="Camera" />
+        <activity android:name="com.android.medialerta.presentation.sos.SosActivity" android:label="SOS"/>
+        <activity android:name="com.android.medialerta.presentation.datepicker.DatePickerActivity" android:label="Calendário"/>
+        <activity android:name="com.android.medialerta.presentation.sms.SmsActivity" android:label="SMS"/>
+        <receiver
+            android:name="com.android.medialerta.presentation.AlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="ALARM"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

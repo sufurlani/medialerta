@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/clock_fragment"
+        android:name="com.android.medialerta.presentation.clock.ClockFragment"
+        android:layout_width="325dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_clock" />
+
+    <EditText
+        android:id="@+id/txtNomeMedicamentoEdit"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/nome_do_medicamento"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLength="40"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clock_fragment" />
+
+    <EditText
+        android:id="@+id/txtDiasDescEdit"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:enabled="false"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:maxLength="40"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtHoraEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembreteEdit"
+        android:visibility="invisible" />
+
+    <Spinner
+        android:id="@+id/ddlTipoMedicamentoEdit"
+        android:layout_width="236dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        android:textSize="56sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtQtdEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeMedicamentoEdit"
+        android:entries="@array/TipoMedicamento" />
+
+    <Spinner
+        android:id="@+id/ddlLembreteEdit"
+        android:layout_width="324dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlTipoMedicamentoEdit"
+        android:entries="@array/Lembrete" />
+
+    <EditText
+        android:id="@+id/txtHoraEdit"
+        android:layout_width="69dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="12dp"
+        android:editable="false"
+        android:hint="@string/hora"
+        android:inputType="number"
+        android:maxLength="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembreteEdit" />
+
+    <Button
+        android:id="@+id/btnImg"
+        android:layout_width="115dp"
+        android:layout_height="93dp"
+        android:backgroundTint="#FFFFFF"
+        app:icon="@drawable/camera_add"
+        app:iconSize="200px"
+        app:iconTint="#252323"
+        app:layout_constraintBottom_toBottomOf="@+id/imgMedicamentoEdit"
+        app:layout_constraintEnd_toEndOf="@+id/imgMedicamentoEdit"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@+id/imgMedicamentoEdit"
+        app:layout_constraintTop_toTopOf="@+id/imgMedicamentoEdit"
+        app:layout_constraintVertical_bias="0.358" />
+
+    <ImageView
+        android:id="@+id/imgMedicamentoEdit"
+        android:layout_width="140dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbTercaEdit"/>
+
+    <EditText
+        android:id="@+id/txtMinutoEdit"
+        android:layout_width="69dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="12dp"
+        android:editable="false"
+        android:hint="@string/minuto"
+        android:inputType="number"
+        android:maxLength="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembreteEdit" />
+
+    <Button
+        android:id="@+id/btnSalvarEdit"
+        android:layout_width="154dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbQuintaEdit" />
+
+    <CheckBox
+        android:id="@+id/cbDomingoEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraEdit" />
+
+    <CheckBox
+        android:id="@+id/cbSabadoEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="S"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toEndOf="@+id/cbSextaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutoEdit" />
+
+    <CheckBox
+        android:id="@+id/cbSextaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="S"
+        app:layout_constraintStart_toEndOf="@+id/cbQuintaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutoEdit" />
+
+    <CheckBox
+        android:id="@+id/cbTercaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="T"
+        app:layout_constraintStart_toEndOf="@+id/cbSegundaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraEdit" />
+
+    <CheckBox
+        android:id="@+id/cbQuartaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="Q"
+        app:layout_constraintStart_toEndOf="@+id/cbTercaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraEdit" />
+
+    <CheckBox
+        android:id="@+id/cbQuintaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="Q"
+        app:layout_constraintStart_toEndOf="@+id/cbQuartaEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtMinutoEdit" />
+
+    <CheckBox
+        android:id="@+id/cbSegundaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="false"
+        android:hint="S"
+        app:layout_constraintStart_toEndOf="@+id/cbDomingoEdit"
+        app:layout_constraintTop_toBottomOf="@+id/txtHoraEdit" />
+
+    <EditText
+        android:id="@+id/txtQtdEdit"
+        android:layout_width="81dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/qtd"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="5"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeMedicamentoEdit" />
+
+    <Button
+        android:id="@+id/btnCalendarEdit"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:hint="C"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toEndOf="@+id/txtMinutoEdit"
+        app:layout_constraintTop_toBottomOf="@+id/ddlLembreteEdit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

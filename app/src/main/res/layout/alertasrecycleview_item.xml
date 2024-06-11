@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        tools:ignore="UselessParent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/dtAlertaItem"
+                style="@style/medi_alerta"
+                android:layout_width="240dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/imgLstMedicamento"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtAlertaItem"
+                style="@style/medi_alerta"
+                android:layout_width="240dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/imgLstMedicamento"
+                app:layout_constraintTop_toBottomOf="@+id/dtAlertaItem" />
+
+            <TextView
+                android:id="@+id/txtQtdItem"
+                style="@style/medi_alerta"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/imgLstMedicamento"
+                app:layout_constraintTop_toBottomOf="@+id/txtAlertaItem" />
+
+            <TextView
+                android:id="@+id/txtTipoMedicamentoItem"
+                style="@style/medi_alerta"
+                android:layout_width="160dp"
+                android:layout_height="30dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txtQtdItem"
+                app:layout_constraintTop_toBottomOf="@+id/txtAlertaItem" />
+
+            <TextView
+                android:id="@+id/txtLembreteMedicamentoItem"
+                style="@style/medi_alerta"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="12dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imgLstMedicamento"
+                app:layout_constraintTop_toBottomOf="@+id/txtTipoMedicamentoItem" />
+
+            <ImageView
+                android:id="@+id/imgLstMedicamento"
+                android:layout_width="99dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="24dp"
+                android:contentDescription="@string/imagem_do_medicamento"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.106" />
+
+            <Button
+                android:id="@+id/btnEditar"
+                android:layout_width="110dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/editar"
+                android:textSize="13sp"
+                app:icon="@drawable/edit_button_svgrepo_com"
+                app:layout_constraintEnd_toStartOf="@+id/btnExcluir"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imgLstMedicamento"
+                app:layout_constraintTop_toBottomOf="@+id/txtLembreteMedicamentoItem" />
+
+            <Button
+                android:id="@+id/btnExcluir"
+                android:layout_width="124dp"
+                android:layout_height="55dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/excluir"
+                android:textSize="13sp"
+                app:icon="@drawable/trash_svgrepo_com"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtLembreteMedicamentoItem"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/imgTipo"
+                android:layout_width="39dp"
+                android:layout_height="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txtTipoMedicamentoItem"
+                app:layout_constraintTop_toBottomOf="@+id/txtAlertaItem" />
+
+            <ImageView
+                android:id="@+id/imgLembrete"
+                android:layout_width="39dp"
+                android:layout_height="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txtLembreteMedicamentoItem"
+                app:layout_constraintTop_toBottomOf="@+id/imgTipo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

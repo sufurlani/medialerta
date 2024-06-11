@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="TipoMedicamento">
+        <item>Comprimidos</item>
+        <item>Capsulas</item>
+        <item>Gotas</item>
+        <item>mL</item>
+        <item>Comprimido Sublingual</item>
+        <item>Ampolas</item>
+        <item>Outros</item>
+    </string-array>
+    <string-array name="Lembrete">
+        <item>Jejum</item>
+        <item>De Manhã</item>
+        <item>Antes do Almoço</item>
+        <item>De Noite</item>
+        <item>Antes de Dormir</item>
+        <item >Outros</item>
+    </string-array>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.android.medialerta.presentation.alert.AlertaListActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/clock_fragment"
+        android:name="com.android.medialerta.presentation.clock.ClockFragment"
+        android:layout_width="324dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnNewAlert"
+        android:layout_width="137dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/novo_alerta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clock_fragment" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/alertasRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewAlert"
+        tools:listitem="@layout/alertasrecycleview_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

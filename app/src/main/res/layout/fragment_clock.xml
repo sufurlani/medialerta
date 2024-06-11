@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.medialerta.presentation.clock.ClockFragment">
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="match_parent"
+        android:layout_height="105dp"
+        android:format12Hour="E, dd MMM yyyy  HH:mm"
+        android:format24Hour="E, dd MMM yyyy  HH:mm"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        android:background="@drawable/border"
+        />
+</FrameLayout>
