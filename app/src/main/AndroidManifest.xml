@@ -23,29 +23,33 @@
 
     <application
         android:name="com.android.medialerta.MediAlertaApplication"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_ma"
+        android:roundIcon="@mipmap/ic_launcher_ma"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:screenOrientation="userPortrait"
+        >
         <activity
             android:name="com.android.medialerta.presentation.MainActivity"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.medialerta.presentation.alert.AlertaListActivity" android:label="Alertas"/>
-        <activity android:name="com.android.medialerta.presentation.alert.NewAlertaActivity" android:label="Criar Alerta"/>
-        <activity android:name="com.android.medialerta.presentation.alert.EditAlertaActivity" android:label="Editar Alerta"/>
-        <activity android:name="com.android.medialerta.presentation.camerapreview.CameraPreviewActivity" android:label="Camera" />
-        <activity android:name="com.android.medialerta.presentation.sos.SosActivity" android:label="SOS"/>
-        <activity android:name="com.android.medialerta.presentation.datepicker.DatePickerActivity" android:label="Calendário"/>
-        <activity android:name="com.android.medialerta.presentation.sms.SmsActivity" android:label="SMS"/>
+        <activity android:name="com.android.medialerta.presentation.alert.AlertaListActivity" android:label="Alertas" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.alert.NewAlertaActivity" android:label="Criar Alerta" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.alert.EditAlertaActivity" android:label="Editar Alerta" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.camerapreview.CameraPreviewActivity" android:label="Camera" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.sos.SosActivity" android:label="SOS" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.datepicker.DatePickerActivity" android:label="Calendário" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.sms.SmsActivity" android:label="SMS" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.home.HomeActivity" android:label="Home" android:screenOrientation="locked"/>
+        <activity android:name="com.android.medialerta.presentation.usuario.EditUsuarioActivity" android:label="Editar Usuário" android:screenOrientation="locked"/>
+
         <receiver
             android:name="com.android.medialerta.presentation.AlarmReceiver"
             android:exported="false">

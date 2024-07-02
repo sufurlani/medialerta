@@ -129,6 +129,10 @@
 
     <Button
         android:id="@+id/btnSalvarNovo"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:backgroundTint="@color/design_default_color_secondary_variant"
+        android:textColor="@color/design_default_color_on_primary"
+        android:textSize="26sp"
         android:layout_width="154dp"
         android:layout_height="79dp"
         android:layout_marginTop="56dp"

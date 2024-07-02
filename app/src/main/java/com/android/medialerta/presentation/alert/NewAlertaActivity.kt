@@ -267,6 +267,6 @@ class NewAlertaActivity : AppCompatActivity() {
 
     private fun getAlertDate() : String
     {
-        return SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().time)
+        return SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().time)
     }
 }

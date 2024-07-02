@@ -2,17 +2,26 @@ package com.android.medialerta.presentation.sms
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.telephony.SmsManager
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.android.medialerta.MediAlertaApplication
+import com.android.medialerta.model.entity.Alerta
 import com.android.medialerta.presentation.alert.AlertaViewModel
 import com.android.medialerta.presentation.alert.AlertaViewModelFactory
 import com.android.medialerta.presentation.contact.ContactViewModel
+import com.android.medialerta.presentation.usuario.UsuarioViewModel
+import com.android.medialerta.presentation.usuario.UsuarioViewModelFactory
 import medialerta.databinding.ActivitySmsBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 
 class SmsActivity : AppCompatActivity() {
@@ -21,8 +30,13 @@ class SmsActivity : AppCompatActivity() {
     private val alertaViewModel: AlertaViewModel by viewModels {
         AlertaViewModelFactory((application as MediAlertaApplication).repository)
     }
+    private val usuarioViewModel: UsuarioViewModel by viewModels {
+        UsuarioViewModelFactory((application as MediAlertaApplication).usuarioRepository)
+    }
+
     private var contactName : String? = null
     private var phoneNumber : String? = null
+    private var userName : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +67,10 @@ class SmsActivity : AppCompatActivity() {
         } else {
             binding.txtSMS.text =
                 "Nenhum contato favorito cadastrado"
+        }
+
+        usuarioViewModel.users.observe(this) { user ->
+            userName = user.nome
         }
     }
 
@@ -86,14 +104,14 @@ class SmsActivity : AppCompatActivity() {
     private fun sendSms() {
         if(phoneNumber?.isNotEmpty() == true) {
             val messages: ArrayList<String> = ArrayList()
-            messages.add("{NOME AQUI} possui as seguintes medicações: ")
+            messages.add("$userName possui as seguintes medicações: ")
             alertaViewModel.nextAlerts.observe(this) { alerts ->
                 alerts.forEach {
-                    messages.add(it.dataCriacao + " "
-                    + it.horaAlerta + ":" + it.minutoAlerta + " - "
-                    + it.nomeMedicamento + " "
+                    messages.add(
+                        getMensagem(it) + " - "
+                    + "Medicamento: " + it.nomeMedicamento + " "
                     + it.quantidadeMedicamento + " "
-                    + it.tipoMedicamento + " "
+                    + it.tipoMedicamento + " - "
                     + it.lembretemedicamento)
                 }
             }
@@ -106,6 +124,12 @@ class SmsActivity : AppCompatActivity() {
             smsManager.sendMultipartTextMessage(
                 phoneNumber, null, messages, null, null
             )
+
+            Toast.makeText(
+                baseContext,
+                "Mensagem enviada com sucesso",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -125,5 +149,24 @@ class SmsActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    private fun getMensagem(alerta: Alerta) : String? {
+        var stringEnd = " " + alerta.horaAlerta + ":" + alerta.minutoAlerta + " hrs"
+
+        val dataCriacao = LocalDateTime.parse(
+            alerta.dataCriacao,
+            DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
+        )
+
+        if (LocalDateTime.now().dayOfMonth == dataCriacao.dayOfMonth
+            && (alerta.horaAlerta!! < dataCriacao.hour || (alerta.horaAlerta!! == dataCriacao.hour && alerta.minutoAlerta!! < dataCriacao.minute))
+        ) {
+            return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+                .format(dataCriacao.plusDays(1)) + stringEnd
+        }
+
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+            .format(dataCriacao) + stringEnd
     }
 }

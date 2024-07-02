@@ -1,7 +1,11 @@
 package com.android.medialerta.presentation.alert
 
+import android.graphics.Color
+import android.graphics.Paint
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +15,10 @@ import com.android.medialerta.presentation.enums.LembreteEnum
 import com.android.medialerta.presentation.enums.TipoMedicamentoEnum
 import medialerta.R
 import medialerta.databinding.AlertasrecycleviewItemBinding
-import java.text.SimpleDateFormat
-import java.util.Calendar
+import java.time.LocalDateTime
+import java.time.LocalDateTime.now
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 
 class AlertaListAdapter : ListAdapter<Alerta, AlertViewHolder>(ALERT_COMPARATOR) {
@@ -32,7 +38,7 @@ class AlertaListAdapter : ListAdapter<Alerta, AlertViewHolder>(ALERT_COMPARATOR)
 
     inner class AlertViewHolder(private val binding: AlertasrecycleviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(alerta: Alerta, position: Int) {
-            binding.dtAlertaItem.text = getMensagem(alerta) + " " + alerta.horaAlerta.toString() + ":" + alerta.minutoAlerta.toString() + " hrs"
+            binding.dtAlertaItem.text = getMensagem(alerta, binding.dtAlertaItem).toString()
             binding.txtAlertaItem.text = alerta.nomeMedicamento
             binding.txtQtdItem.text = alerta.quantidadeMedicamento.toString()
             binding.txtTipoMedicamentoItem.text = alerta.tipoMedicamento
@@ -91,8 +97,9 @@ class AlertaListAdapter : ListAdapter<Alerta, AlertViewHolder>(ALERT_COMPARATOR)
         }
     }
 
-    private fun getMensagem(alerta: Alerta) : String {
+    private fun getMensagem(alerta: Alerta, txtAlertaItem: TextView) : String? {
         val msg:ArrayList<String> = ArrayList()
+        var stringEnd = " " + alerta.horaAlerta + ":" + alerta.minutoAlerta + " hrs"
         if(alerta.diasDaSemanaAlerta.diasDaSemana.isNotEmpty()) {
             alerta.diasDaSemanaAlerta.diasDaSemana.forEach {
                 if(it == 1)
@@ -110,14 +117,23 @@ class AlertaListAdapter : ListAdapter<Alerta, AlertViewHolder>(ALERT_COMPARATOR)
                 if(it == 7)
                     msg.add("Sab")
             }
-            return msg.joinToString()
+            return msg.joinToString() + stringEnd
         } else {
-            val calendar: Calendar = Calendar.getInstance()
+            val dataCriacao = LocalDateTime.parse(alerta.dataCriacao,  DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
 
-            
+            if(now().dayOfMonth == dataCriacao.dayOfMonth
+                && (alerta.horaAlerta!! < dataCriacao.hour || (alerta.horaAlerta!! == dataCriacao.hour && alerta.minutoAlerta!! < dataCriacao.minute)))
+                    return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(dataCriacao.plusDays(1)) + stringEnd
+            else if(now().dayOfMonth < dataCriacao.dayOfMonth || now().dayOfMonth == dataCriacao.dayOfMonth
+                    && (now().hour > alerta.horaAlerta!! || (now().hour == alerta.horaAlerta!!  && now().minute > alerta.minutoAlerta!!)))
+            {
+                txtAlertaItem.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                txtAlertaItem.setTextColor(Color.RED)
+                txtAlertaItem.tooltipText = "Este alerta já foi enviado e pode ser deletado da lista"
+                return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(dataCriacao) + stringEnd
+            }
 
-            return SimpleDateFormat("dd/MM/yyyy HH:mm").format(calendar.time)
-
+            return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).format(dataCriacao) + stringEnd
         }
     }
 }
