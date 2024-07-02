@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AlertaDao {
 
-    @Query("SELECT * FROM alerta_table ORDER BY data_criacao DESC")
+    @Query("SELECT * FROM alerta_table ORDER BY hora_alerta,minuto_alerta")
     fun getAlertList(): Flow<List<Alerta>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -26,6 +26,6 @@ interface AlertaDao {
     @Query("SELECT * FROM alerta_table WHERE id = :id")
     suspend fun getById(id:Int) : Alerta
 
-    @Query("SELECT * FROM alerta_table WHERE data_criacao >= :hoje")
+    @Query("SELECT * FROM alerta_table WHERE (data_criacao >= :hoje OR dias_da_semana IS NOT NULL)")
     fun getNextAlerts(hoje:String) : Flow<List<Alerta>>
 }

@@ -1,58 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/clock_fragment"
-        android:name="com.android.medialerta.presentation.clock.ClockFragment"
-        android:layout_width="324dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="48dp"
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="253dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:text="Entrar"
+        android:textAllCaps="false"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:text="e as "
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="274dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:text="  políticas de privacidade"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/txtNome"
+        android:layout_width="365dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="20"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="213dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Ao continuar você aceita os "
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="141dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="  termos de serviço"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="364dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="300dp"
+        android:labelFor="@id/txtNome"
+        android:text="Como gostaria de ser chamado(a)?"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnAlerts"
-        android:layout_width="318dp"
-        android:layout_height="122dp"
-        android:text="@string/alertas"
-        android:textSize="34sp"
-        app:icon="@drawable/capsule_svgrepo_com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clock_fragment" />
-
-    <Button
-        android:id="@+id/btnSms"
-        android:layout_width="318dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="40dp"
-        android:text="SMS"
-        android:textSize="34sp"
-        app:icon="@drawable/person_svgrepo_com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAlerts" />
-
-    <Button
-        android:id="@+id/btnSos"
-        android:layout_width="318dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/sos"
-        android:textColor="@color/design_default_color_error"
-        android:textSize="34sp"
-        app:icon="@drawable/telephone_receiver_material_svgrepo_com"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSms" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

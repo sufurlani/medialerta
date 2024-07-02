@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/clock_fragment"
+        android:name="com.android.medialerta.presentation.clock.ClockFragment"
+        android:layout_width="324dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuario" />
+
+    <Button
+        android:id="@+id/btnSos"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="318dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="@string/sos"
+        android:textAllCaps="true"
+        android:textColor="@color/design_default_color_on_primary"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:icon="@drawable/telephone_receiver_material_svgrepo_com"
+        app:iconPadding="@dimen/mtrl_btn_icon_padding"
+        app:iconSize="@dimen/min_height"
+        app:iconTint="@color/design_default_color_on_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSms" />
+
+    <Button
+        android:id="@+id/btnAlerts"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="318dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/alertas"
+        android:textAllCaps="true"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:icon="@drawable/capsule_svgrepo_com"
+        app:iconPadding="@dimen/mtrl_btn_icon_padding"
+        app:iconSize="@dimen/min_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clock_fragment" />
+
+    <Button
+        android:id="@+id/btnSms"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="318dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="36dp"
+        android:text="SMS"
+        android:textAllCaps="true"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:icon="@drawable/person_svgrepo_com"
+        app:iconPadding="@dimen/mtrl_btn_icon_padding"
+        app:iconSize="@dimen/min_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAlerts" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="35dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="Olá"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/clock_fragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtUsuario"
+        android:layout_width="216dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="32dp"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEditar"
+        android:layout_width="67dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="32dp"
+        android:text="editar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtUsuario"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/editar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,20 +22,9 @@ limitations under the License. -->
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSecondary">@color/btnRed</item>
         <item name="colorTertiary">@color/btnGreen</item>
-    </style>
-
-    <!-- The default font for RecyclerView items is too small.
-    The margin is a simple delimiter between the words. -->
-    <style name="word_title">
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:background">@android:color/darker_gray</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
-    </style>
-
-    <style name="word_title2">
-        <item name="android:background">@android:color/darker_gray</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="medi_alerta">

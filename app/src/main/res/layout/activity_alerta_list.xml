@@ -19,12 +19,18 @@
 
     <Button
         android:id="@+id/btnNewAlert"
-        android:layout_width="137dp"
-        android:layout_height="63dp"
+        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        android:layout_width="179dp"
+        android:layout_height="57dp"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@color/design_default_color_secondary_variant"
         android:text="@string/novo_alerta"
+        android:textColor="@color/design_default_color_on_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_add_black_24dp"
+        app:iconTint="@color/buttonLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clock_fragment" />
 
